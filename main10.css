@@ -103,11 +103,12 @@ img{
 
 .header__col{
     display: flex;
-    align-items: center;
+   
 }
 
 .header__col--align--right{
     justify-content: flex-end;
+    width: 200px;
 }
 
 .logo{
@@ -162,10 +163,72 @@ img{
     margin-bottom: 4px;
 }
 
-.contacts__dropdown-title{
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown__link{
     font-size: 13px;
     text-decoration: underline;
     color:#dfb56d;
+}
+
+.dropdown:hover .dropdown__link{
+    color: #fff;
+}
+
+.dropdown:hover .dropdown__menu{
+    display: block;
+    opacity: 1;
+ }
+
+.dropdown__menu{
+    position: absolute;
+    width: 160px;
+    height: 80px;
+    top: 35px;
+    display: none;
+    right: -1px;
+    bottom: 420px;
+    background: #EDEDED;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    border-radius: 5%;
+}
+
+.dropdown__menu::before{
+    content: "";
+    display: inline-block;
+    top: -10px;
+    right: 42px;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: #EDEDED;
+    transform: rotate(45deg);
+    
+}
+
+.dropdown__list{
+    position: absolute;
+    top:19px;
+    right: 19px;
+    align-items: center;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 21px;
+    color: #1E1F20;    
+}
+    
+
+.dropdown__item{
+    display: flex;
+}
+
+
+.dropdown__item:first-child{
+    font-weight: 700;
 }
 
 .hero__text-section{
@@ -551,7 +614,7 @@ img{
 }
 
 .socials{
-    margin-right: 74px;
+    margin-right: 58px;
     margin-bottom: 0px;
 }
 
@@ -562,43 +625,175 @@ img{
 .socials__link{
     display: block;
     text-decoration: none;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: center center no-repeat;
 }
 
 .socials__item--icon--telegram .socials__link{
-    background-image: url("./img/icons/telegram.png");
+    background-color: #29292c;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
 }
 
-.socials__item--icon--telegram .socials__link:hover{
-    background-image: url("./img/icons/telegram-hover.png");
+.socials__item--icon--telegram .socials__link:hover::before{
+    opacity: 1;
+}
+
+.socials__item--icon--telegram .socials__link:hover::after{
+    opacity: 0;
+}
+
+.socials__item--icon--telegram .socials__link:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png")-123px -10px;
+}
+
+.socials__item--icon--telegram .socials__link::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png")-123px -66px;
+    opacity: 0;
+    transition: .3s;
 }
 
 .socials__item--icon--vk .socials__link{
-    background-image: url("./img/icons/vk.png");
+    background-color: #29292c;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
 }
 
-.socials__item--icon--vk .socials__link:hover{
-    background-image: url("./img/icons/vk-hover.png");
+.socials__item--icon--vk .socials__link:hover::before{
+    opacity: 1;
 }
 
+.socials__item--icon--vk .socials__link:hover::after{
+    opacity: 0;
+}
+
+.socials__item--icon--vk .socials__link:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png") -10px -122px;
+}
+
+.socials__item--icon--vk .socials__link:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png")-66px -122px;
+    opacity: 0;
+    transition: .3s;
+}
 
 .socials__item--icon--fb .socials__link{
-    background-image: url("./img/icons/fb.png");
+    background-color: #29292c;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
+}
+  
+.socials__item--icon--fb .socials__link:hover::before{
+    opacity: 1;
 }
 
-.socials__item--icon--fb .socials__link:hover{
-    background-image: url("./img/icons/fb-hover.png");
+.socials__item--icon--fb .socials__link:hover::after{
+    opacity: 0;
+}
+
+.socials__item--icon--fb .socials__link:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png")  -67px -10px;
+}
+
+.socials__item--icon--fb .socials__link:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 34px;
+    background: url("./img/icons/css_sprites.png")-10px -10px;
+    opacity: 0;
+    transition: .3s;
 }
 
 .socials__item--icon--insta .socials__link{
-    background-image: url("./img/icons/insta.png");
+    background-color: #29292c;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
 }
 
-.socials__item--icon--insta .socials__link:hover{
-    background-image: url("./img/icons/insta-hover.png");
+.socials__item--icon--insta .socials__link:hover::before{
+    opacity: 1;
 }
+
+.socials__item--icon--insta .socials__link:hover::after{
+    opacity: 0;
+}
+
+.socials__item--icon--insta .socials__link:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png")  -10px -66px;
+}
+
+.socials__item--icon--insta .socials__link:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background: url("./img/icons/css_sprites.png") -66px -66px;
+    opacity: 0;
+    transition: .3s;
+}
+
 
 .top-line{
     min-height: 415px;
